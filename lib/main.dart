@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stock_scan/core/constants/routes.dart';
-import 'package:stock_scan/features/stock-parse/presentation/pages/home_screen.dart';
+import 'package:stock_scan/features/stock-parse/presentation/pages/home/home_screen.dart';
 import 'injection.dart' as di;
 
 Future<void> main() async {
