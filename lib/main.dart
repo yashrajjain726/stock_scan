@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:stock_scan/core/constants/routes.dart';
 import 'package:stock_scan/features/stock-parse/presentation/pages/home_screen.dart';
+import 'injection.dart' as di;
 
 Future<void> main() async {
+  await di.init();
   runApp(const MyApp());
 }
 
