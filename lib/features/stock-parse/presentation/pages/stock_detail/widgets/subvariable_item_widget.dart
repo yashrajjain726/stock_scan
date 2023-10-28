@@ -15,10 +15,12 @@ class SubVariableItemWidget extends StatelessWidget {
   subVariableItem(context) {
     if (subVariable!.type == "value") {
       final firstVal = subVariable!.values!.first;
-      return subVariableBodyWidget(context, '', subVariable!.values, firstVal);
+      return subVariableBodyWidget(
+          context, '/value-detail', subVariable!.values, firstVal);
     } else if (subVariable!.type == "indicator") {
       final defaultVal = subVariable!.defaultValue;
-      return subVariableBodyWidget(context, '', subVariable, defaultVal);
+      return subVariableBodyWidget(
+          context, '/set-param', subVariable, defaultVal);
     }
     return const SizedBox.shrink();
   }
