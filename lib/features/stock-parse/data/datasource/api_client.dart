@@ -20,14 +20,16 @@ class ApiClient {
         localStorageService.setFetchedData(response.body);
         List<dynamic> data = json.decode(response.body);
         return data.map((element) => ScanModel.fromJson(element)).toList();
-      } else
+      } else {
         throw Exception;
+      }
     } on Exception {
       if (localStorageService.getFetchedData != null) {
         List<dynamic> data = json.decode(localStorageService.getFetchedData!);
         return data.map((element) => ScanModel.fromJson(element)).toList();
-      } else
+      } else {
         throw ServerException();
+      }
     } catch (e) {
       throw ServerException();
     }

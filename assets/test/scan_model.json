@@ -1,0 +1,18 @@
+{
+  "id": 1,
+  "name": "Example Scan",
+  "tag": "example_tag",
+  "color": "example_color",
+  "criteria": [
+    {
+      "type": "type1",
+      "text": "text1",
+      "variable": { "key1": "value1", "key2": "value2" }
+    },
+    {
+      "type": "type2",
+      "text": "text2",
+      "variable": { "key3": "value3" }
+    }
+  ]
+}

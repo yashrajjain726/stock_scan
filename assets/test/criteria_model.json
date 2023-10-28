@@ -1,0 +1,5 @@
+{
+  "type": "example_type",
+  "text": "example_text",
+  "variable": { "key1": "value1", "key2": "value2" }
+}
