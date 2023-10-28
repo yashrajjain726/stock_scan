@@ -1,6 +1,6 @@
 # stock_scan
-
-A new Flutter project.
+Demo Video Attached Below !
+https://github.com/yashrajjain726/stock_scan/blob/pre-release/assets/video/video.mp4
 
 ## Getting Started
 
