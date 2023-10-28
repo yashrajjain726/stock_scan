@@ -4,7 +4,8 @@ import 'package:stock_scan/features/stock-parse/data/datasource/api_client.dart'
 import 'package:stock_scan/features/stock-parse/data/repository/stock_repository_impl.dart';
 import 'package:stock_scan/features/stock-parse/domain/repository/stock_repository.dart';
 import 'package:stock_scan/features/stock-parse/domain/usecases/get_stock_usecase.dart';
-import 'package:stock_scan/features/stock-parse/presentation/bloc/stock_bloc.dart';
+import 'package:stock_scan/features/stock-parse/presentation/blocs/internet/internet_bloc.dart';
+import 'package:stock_scan/features/stock-parse/presentation/blocs/stock/stock_bloc.dart';
 
 final sl = GetIt.instance;
 
@@ -13,6 +14,7 @@ Future<void> init() async {
   sl.registerFactory(() => StockBloc(
         getStocksUseCase: sl(),
       ));
+  sl.registerFactory(() => InternetBloc());
 
   // USECASE INJECTION
   sl.registerLazySingleton(() => GetStocksUseCase(stockRepository: sl()));

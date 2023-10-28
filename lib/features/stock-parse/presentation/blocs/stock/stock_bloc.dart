@@ -17,10 +17,14 @@ class StockBloc extends Bloc<StockEvent, StockState> {
   }
 
   _fetchStockData(FetchStockEvent event, Emitter emitter) async {
-    final data = await getStocksUseCase();
-    data.fold(
-        (failure) =>
-            emit(const StockFetchFailed(message: 'Something went wrong')),
-        (scans) => emit(StockLoaded(scans: scans)));
+    try {
+      final data = await getStocksUseCase();
+      data.fold(
+          (failure) =>
+              emit(const StockFetchFailed(message: 'Something went wrong')),
+          (scans) => emit(StockLoaded(scans: scans)));
+    } catch (e) {
+      emit(StockFetchFailed(message: 'Something went wrong'));
+    }
   }
 }
