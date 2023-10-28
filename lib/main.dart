@@ -4,7 +4,9 @@ import 'package:stock_scan/features/stock-parse/presentation/pages/home/home_scr
 import 'injection.dart' as di;
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await di.init();
+
   runApp(const MyApp());
 }
 

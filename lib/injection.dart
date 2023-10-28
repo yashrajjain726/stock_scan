@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
+import 'package:stock_scan/core/storage/local_storage_service.dart';
 import 'package:stock_scan/features/stock-parse/data/datasource/api_client.dart';
 import 'package:stock_scan/features/stock-parse/data/repository/stock_repository_impl.dart';
 import 'package:stock_scan/features/stock-parse/domain/repository/stock_repository.dart';
@@ -10,6 +11,8 @@ import 'package:stock_scan/features/stock-parse/presentation/blocs/stock/stock_b
 final sl = GetIt.instance;
 
 Future<void> init() async {
+  await LocalStorageService().initPrefInstance();
+
   // BLOC INJECTION
   sl.registerFactory(() => StockBloc(
         getStocksUseCase: sl(),
@@ -26,8 +29,14 @@ Future<void> init() async {
     ),
   );
 
+  // SERVICES
+  sl.registerLazySingleton<LocalStorageService>(
+    () => LocalStorageService(),
+  );
+
   // API CLIENT INJECTION
-  sl.registerLazySingleton<ApiClient>(() => ApiClient(client: sl()));
+  sl.registerLazySingleton<ApiClient>(
+      () => ApiClient(localStorageService: sl(), client: sl()));
 
   // EXTERNAL
   sl.registerLazySingleton(() => http.Client());
