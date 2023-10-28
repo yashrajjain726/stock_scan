@@ -21,13 +21,38 @@ class StockDetailScreen extends StatelessWidget {
               child: ListView.builder(
                   itemCount: scan.criterias.length,
                   itemBuilder: (context, index) {
-                    return StockCriteriaItemWidget(
-                        criteria: scan.criterias[index]);
+                    return Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          StockCriteriaItemWidget(
+                              criteria: scan.criterias[index]),
+                          (index < scan.criterias.length - 1)
+                              ? andWidget()
+                              : const SizedBox.shrink()
+                        ],
+                      ),
+                    );
                   }),
             )
           ],
         ),
       ),
     ));
+  }
+
+  Column andWidget() {
+    return const Column(
+      children: [
+        SizedBox(
+          height: 5,
+        ),
+        Text(
+          'and',
+          style: TextStyle(fontWeight: FontWeight.w300),
+        ),
+      ],
+    );
   }
 }

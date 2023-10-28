@@ -19,7 +19,7 @@ class StockCriteriaItemWidget extends StatelessWidget {
     final texts = criteria.text.split(" ");
     if (criteria.type == "plain_text") {
       for (var item in texts) {
-        widgets.add(Text(utf8.decode(item.codeUnits)));
+        widgets.add(baseBodyText(item));
       }
     } else if (criteria.type == "variable") {
       for (var item in texts) {
@@ -32,22 +32,26 @@ class StockCriteriaItemWidget extends StatelessWidget {
             }
           });
         } else {
-          widgets.add(Text(utf8.decode(item.codeUnits)));
+          widgets.add(baseBodyText(item));
         }
       }
     }
     return stockCriteriaBody(widgets);
   }
 
-  Padding stockCriteriaBody(List<Widget> widgets) {
-    return Padding(
-      padding: const EdgeInsets.all(10),
-      child: SizedBox(
-        width: double.infinity,
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [Wrap(spacing: 4, children: widgets)]),
-      ),
+  Text baseBodyText(String item) {
+    return Text(
+      utf8.decode(item.codeUnits),
+      style: const TextStyle(fontWeight: FontWeight.bold),
+    );
+  }
+
+  Widget stockCriteriaBody(List<Widget> widgets) {
+    return SizedBox(
+      width: double.infinity,
+      child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [Wrap(spacing: 4, children: widgets)]),
     );
   }
 }
