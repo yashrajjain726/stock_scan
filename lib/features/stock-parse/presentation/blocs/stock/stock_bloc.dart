@@ -18,6 +18,7 @@ class StockBloc extends Bloc<StockEvent, StockState> {
 
   _fetchStockData(FetchStockEvent event, Emitter emitter) async {
     try {
+      emit(StockLoading());
       final data = await getStocksUseCase();
       data.fold(
           (failure) =>
