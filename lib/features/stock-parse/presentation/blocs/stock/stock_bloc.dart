@@ -1,6 +1,9 @@
 // ignore: depend_on_referenced_packages
+// ignore_for_file: invalid_use_of_visible_for_testing_member
+
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:stock_scan/core/constants/app_constants.dart';
 import 'package:stock_scan/features/stock-parse/domain/entities/scan/scan.dart';
 import 'package:stock_scan/features/stock-parse/domain/usecases/get_stock_usecase.dart';
 
@@ -21,11 +24,11 @@ class StockBloc extends Bloc<StockEvent, StockState> {
       emit(StockLoading());
       final data = await getStocksUseCase();
       data.fold(
-          (failure) =>
-              emit(const StockFetchFailed(message: 'Something went wrong')),
+          (failure) => emit(
+              const StockFetchFailed(message: Localization.somethingWentWrong)),
           (scans) => emit(StockLoaded(scans: scans)));
     } catch (e) {
-      emit(StockFetchFailed(message: 'Something went wrong'));
+      emit(const StockFetchFailed(message: Localization.somethingWentWrong));
     }
   }
 }

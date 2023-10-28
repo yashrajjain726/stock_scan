@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stock_scan/core/constants/routes.dart';
 import 'package:stock_scan/features/stock-parse/data/models/subvariable/subvariable_model.dart';
 
 class SubVariableItemWidget extends StatelessWidget {
@@ -15,12 +16,24 @@ class SubVariableItemWidget extends StatelessWidget {
   subVariableItem(context) {
     if (subVariable!.type == "value") {
       final firstVal = subVariable!.values!.first;
+      final sortedList;
+      if (firstVal > 0) {
+        sortedList = subVariable!.values!;
+        sortedList.sort((num a, num b) {
+          return a.compareTo(b);
+        });
+      } else {
+        sortedList = subVariable!.values;
+        sortedList.sort((num a, num b) {
+          return b.compareTo(a);
+        });
+      }
       return subVariableBodyWidget(
-          context, '/value-detail', subVariable!.values, firstVal);
+          context, AppRoutes.valueDetail, sortedList, firstVal);
     } else if (subVariable!.type == "indicator") {
       final defaultVal = subVariable!.defaultValue;
       return subVariableBodyWidget(
-          context, '/set-param', subVariable, defaultVal);
+          context, AppRoutes.setParam, subVariable, defaultVal);
     }
     return const SizedBox.shrink();
   }

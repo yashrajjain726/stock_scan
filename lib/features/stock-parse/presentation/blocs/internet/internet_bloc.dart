@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:equatable/equatable.dart';
+import 'package:stock_scan/core/constants/app_constants.dart';
 
 part 'internet_event.dart';
 part 'internet_state.dart';
@@ -12,10 +13,12 @@ class InternetBloc extends Bloc<InternetEvent, InternetState> {
   InternetBloc() : super(InternetInitial()) {
     on<InternetEvent>((event, emit) {});
     on<InternetConnectionSuccessEvent>((event, emit) {
-      emit(const InternetConnectionPassedState(message: 'CONNECTED'));
+      emit(const InternetConnectionPassedState(
+          message: Localization.internetConnected));
     });
     on<InternetConnectionFailureEvent>((event, emit) {
-      emit(const InternetConnectionFailedState(message: 'DISCONNECTED'));
+      emit(const InternetConnectionFailedState(
+          message: Localization.internetDisconnected));
     });
 
     subscription = Connectivity()

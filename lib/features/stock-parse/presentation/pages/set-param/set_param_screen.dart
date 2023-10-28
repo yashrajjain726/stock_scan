@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stock_scan/core/constants/app_constants.dart';
 import 'package:stock_scan/core/utils/strings.dart';
 import 'package:stock_scan/core/utils/utils.dart';
 
@@ -77,7 +78,7 @@ class SetParamScreen extends StatelessWidget {
         Text(params.studyType!.toUpperCase(),
             style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 17)),
         const SizedBox(height: 5),
-        const Text('Set Parameters'),
+        const Text(Localization.setParams),
         const SizedBox(height: 10),
       ],
     );

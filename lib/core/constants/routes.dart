@@ -9,15 +9,15 @@ import 'package:stock_scan/features/stock-parse/presentation/pages/value-detail/
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
-    case '/home':
+    case AppRoutes.home:
       return buildRoute(screen: const HomeScreen());
-    case "/stock-detail":
+    case AppRoutes.stockDetail:
       var scan = settings.arguments as Scan;
       return buildRoute(screen: StockDetailScreen(scan: scan));
-    case "/value-detail":
+    case AppRoutes.valueDetail:
       var nums = settings.arguments as List<num?>;
       return buildRoute(screen: ValueDetailScreen(nums: nums));
-    case "/set-param":
+    case AppRoutes.setParam:
       var params = settings.arguments as SubVariable;
       return buildRoute(screen: SetParamScreen(params: params));
     default:
@@ -27,4 +27,11 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
 
 buildRoute({required Widget screen}) {
   return MaterialPageRoute(builder: (_) => screen);
+}
+
+class AppRoutes {
+  static const String home = '/home';
+  static const String stockDetail = '/stock-detail';
+  static const String valueDetail = '/value-detail';
+  static const String setParam = '/set-param';
 }

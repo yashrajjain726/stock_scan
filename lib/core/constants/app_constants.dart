@@ -9,3 +9,10 @@ class AppConstants {
 class ApiRouteConstants {
   static const String FETCH_STOCKS_PATH = "data.json";
 }
+
+class Localization {
+  static const String setParams = "Set Parameters";
+  static const String internetConnected = "INTERNET CONNECTED";
+  static const String internetDisconnected = "INTERNET DISCONNECTED";
+  static const String somethingWentWrong = "Something Went Wrong";
+}

@@ -9,11 +9,6 @@ class ValueDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final sortedNums = List.from(nums);
-    sortedNums.removeWhere((element) => element == null);
-    sortedNums.sort((a, b) {
-      return a!.compareTo(b!);
-    });
     return Scaffold(
         body: Padding(
       padding: const EdgeInsets.all(8.0),
@@ -21,12 +16,12 @@ class ValueDetailScreen extends StatelessWidget {
           separatorBuilder: (context, index) {
             return const Divider();
           },
-          itemCount: sortedNums.length,
+          itemCount: nums.length,
           itemBuilder: (context, index) {
             return ListTile(
               tileColor: Colors.black,
               title: Text(
-                sortedNums[index].toString(),
+                nums[index].toString(),
                 style: const TextStyle(color: Colors.white),
               ),
             );

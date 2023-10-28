@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stock_scan/core/constants/routes.dart';
 import 'package:stock_scan/core/utils.dart';
 
 import 'package:stock_scan/features/stock-parse/domain/entities/scan/scan.dart';
@@ -15,7 +16,7 @@ class ScanItemWidget extends StatelessWidget {
     final color = checkColor(scan.color);
     return InkWell(
       onTap: () =>
-          Navigator.pushNamed(context, '/stock-detail', arguments: scan),
+          Navigator.pushNamed(context, AppRoutes.stockDetail, arguments: scan),
       child: _scanItemBody(color),
     );
   }
