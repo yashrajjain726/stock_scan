@@ -1,0 +1,8 @@
+{
+  "type": "example_type",
+  "study_type": "example_study_type",
+  "parameter_name": "example_parameter_name",
+  "min_value": 0,
+  "max_value": 10,
+  "default_value": 5
+}
