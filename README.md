@@ -1,6 +1,6 @@
 # stock_scan
 Demo Video Attached Below !
-https://github.com/yashrajjain726/stock_scan/blob/pre-release/assets/video/video.mp4
+[https://github.com/yashrajjain726/stock_scan/blob/pre-release/assets/video/video.mp4](https://github.com/yashrajjain726/stock_scan/blob/main/assets/video/video.mp4)
 
 ## Getting Started
 
